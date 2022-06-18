@@ -19,7 +19,7 @@ local ClassList = { -- Classes to Cull
 RenderEntities = {}
 
 local cvar_enable = CreateClientConVar("cl_render_enable", "1", true, false, "enable custom render culling", 0, 1)
-local cvar_distance = CreateClientConVar("cl_render_distance", "8000", true, false, "max distance to render objects", 4000, 35000)
+local cvar_distance = CreateClientConVar("cl_render_distance", "10000", true, false, "max distance to render objects", 4000, 35000)
 local cvar_distance_always = CreateClientConVar("cl_render_distance_always", "1500", true, false, "max distance to always render objects", 50, 4000)
 local cvar_refresh = CreateClientConVar("cl_render_refresh", "10", true, false, "Refresh rate of culling", 5, 60)
 
