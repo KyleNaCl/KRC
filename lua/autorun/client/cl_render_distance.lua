@@ -1,6 +1,6 @@
 
 -- Original: Smart Render > https://steamcommunity.com/sharedfiles/filedetails/?id=2354971452
--- This is a modified, more configurable version with better dynamic fov checks
+-- This is a modified, more configurable version
 -- By Kyle
 
 print("[KRC] \tLoaded cl_render_distance.lua")
