@@ -100,7 +100,7 @@ local function updateRender()
 	if last_enabled != enabled then -- Reset all Entities if convar changed
 		for _, e in ipairs(RenderEntities) do
 			if IsValid(e) then
-				e:SetNoDraw(false)
+				setState(e,false)
 			else
 				table.remove(RenderEntities, _)
 			end
