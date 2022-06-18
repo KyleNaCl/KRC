@@ -50,9 +50,10 @@ local function addRender(ent)
 end
 
 local function setState(e, state)
-	if e:GetNoDraw() != e.custom_render then -- Check if another addon changed state and remove for future conflicts
-		e.custom_render = nil
-		print("[KRC] \tInfo: " .. tostring(e) .. " detected 3rd party change, Removing...")
+	if e:GetNoDraw() != e.custom_render then -- Check if another addon changed state
+		--e.custom_render = nil
+		--print("[KRC] \tInfo: " .. tostring(e) .. " detected 3rd party change")
+		e.custom_render = e:GetNoDraw()
 	else
 		e:SetNoDraw(state)
 		e.custom_render = state
@@ -109,7 +110,7 @@ local function updateRender()
 	last_enabled = enabled
 	if not enabled or context_open then return end
 
-	dotfov = math.abs(1 - (math.pi / (360 / (LP:GetFOV() / 1.5))))
+	dotfov = math.abs(1 - (math.pi / (360 / (LP:GetFOV()))))
 
 	distance = cvar_distance:GetInt() ^ 2 -- Calculate squared to not use sprt in distance check
 	distance_always = cvar_distance_always:GetInt() ^ 2
@@ -133,7 +134,7 @@ local function checkTimer() -- Check if Render timer crashed
 		if crash_count > 5 then
 			cvar_enable:SetBool(false)
 			print("[KRC] \tError: Think Crashed 5 times, use cl_render_enable 1 to re-enable")
-			print("[KRC] \tError: Please Report Errors to github: ")
+			print("[KRC] \tError: Please Report Errors to github: https://github.com/KyleNaCl/KRC")
 		else
 			for _, e in ipairs(RenderEntities) do
 				if IsValid(e) then
